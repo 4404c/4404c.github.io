@@ -1,0 +1,80 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-DwooTto3.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cd2UWjok.css">
+</head><body>
+<div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
+<div id="hud"><button id="bMusic" aria-label="Música">🎵</button><button id="bMute" aria-label="Sonido">🔊</button><button id="bPause" aria-label="Pausa" hidden>⏸️</button></div>
+<div id="shop" class="panel">
+ <div id="top"><h1>PICO<br>MINA</h1><div class="chips"><div>💰 <b id="sMoney">0</b></div><div>💎 <b id="sGems">0</b></div><div>📏 <b id="sRec">0</b> m</div></div></div>
+ <div id="body">
+ <div id="pMine">
+  <p id="tip" hidden></p>
+  <p class="hint">Tocá un pico y después otro igual para <b>fusionarlos</b>. El ✔ marca cuáles se sueltan. Lanzás <b id="sCap"></b>.</p>
+  <div id="inv"></div>
+  <div class="btns">
+   <button id="bBuy"></button><button id="bHp"></button><button id="bDmg"></button><button id="bCap"></button>
+  </div>
+  <button id="bMergeAll" class="wide">🔀 Fusionar todo</button>
+  <label id="ckptRow" class="check" hidden><input id="cCkpt" type="checkbox"> Empezar a los <b id="sCkpt"></b> m</label>
+  <button id="bDrop" class="big">¡Soltar!</button>
+ </div>
+ <div id="pGems" hidden>
+  <h2>Reiniciar</h2>
+  <p class="hint" id="sPreq"></p>
+  <button id="bPrestige" class="big gem">Reiniciar por 💎 <span id="sGain">0</span></button>
+  <h2>Mejoras permanentes</h2>
+  <div id="gemUps" class="btns"></div>
+ </div>
+ <div id="pGoals" hidden>
+  <h2>Recompensa diaria · día <span id="sStreak"></span> de 7</h2>
+  <p class="hint">Si faltás, la racha retrocede un poco, nunca vuelve a cero de golpe.</p>
+  <button id="bDaily" class="big gem"></button>
+  <h2>Misiones de hoy</h2>
+  <p class="hint">Completá las tres para ganar 💎 1. Se renuevan a medianoche.</p>
+  <div id="missions"></div>
+  <h2>Logros <span id="sAch"></span></h2>
+  <div id="achs"></div>
+ </div>
+ <div id="pRank" hidden>
+  <div class="tabs sub"><button id="rkMoney">💰 Mejor partida</button><button id="rkDepth">📏 Profundidad</button></div>
+  <div class="tabs sub"><button id="rkWeek">Esta semana</button><button id="rkAll">Histórico</button></div>
+  <p id="rkMe" class="hint"></p>
+  <ol id="rkList"></ol>
+  <h2>Tu apodo</h2>
+  <div class="nick"><input id="nick" maxlength="16" autocomplete="off" aria-label="Tu apodo"><button id="bNick">Guardar</button></div>
+  <p id="nickMsg" class="hint" hidden></p>
+ </div>
+ <div id="pStyle" hidden>
+  <h2>Estelas</h2>
+  <p class="hint">Se compran con 💎 Gemas. Solo cambian cómo se ven tus picos y no dan ventajas.</p>
+  <div id="looks"></div>
+ </div>
+ <button id="bReset" class="small">Borrar progreso</button>
+ <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
+ </div>
+ <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>✨</span>Estilo</button></div>
+</div>
+<div id="res" class="panel center" hidden><div class="card">
+ <h2>¡Ganancia total!</h2>
+ <div id="rMoney" class="money"></div>
+ <p id="rRec" class="rec" hidden></p>
+ <div id="rAch" class="rec" hidden></div>
+ <p id="rRank" class="rec" hidden></p>
+ <div id="rRows" class="rows"></div>
+ <p id="rGoal" class="goal"></p>
+ <button id="bAgain" class="big">⛏️ Otra vez</button>
+ <button id="bBack" class="wide">Volver a la tienda</button>
+</div></div>
+<div id="pause" class="panel center" hidden><div class="card">
+ <h2>Pausa</h2>
+ <label class="vol"><span>🎵 Música <b id="vMusicTxt"></b></span><input id="vMusic" type="range" min="0" max="100" step="5"></label>
+ <label class="vol"><span>🔊 Sonidos <b id="vSfxTxt"></b></span><input id="vSfx" type="range" min="0" max="100" step="5"></label>
+ <label class="check"><input id="cGui" type="checkbox"> Ocultar interfaz</label>
+ <p id="guiHint" class="hint" hidden>Para volver a pausar: tocá dos veces la pantalla, o usá el botón atrás o Esc.</p>
+ <button id="bResume" class="big">Continuar</button>
+ <button id="bQuit" class="wide">Cancelar y volver al lobby</button>
+ <p class="hint">Te quedás con lo ganado, pero la partida no entra al ranking.</p>
+</div></div>
+<div id="toast" hidden></div>
+<div id="modal" hidden><div><p id="mText"></p><div class="btns"><button id="mNo">Cancelar</button><button id="mYes"></button></div></div></div>
+</div></body></html>
