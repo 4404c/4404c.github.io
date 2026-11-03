@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-WQyM-yDL.js"></script>
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-CBg596vD.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-E55Aig70.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
@@ -25,6 +25,7 @@
    <div id="rOut">
     <p class="hint">De 2 a 4 jugadores bajan 100 m juntos y tienen 1 minuto para vencer a un jefe. Cada uno lleva sus 8 mejores picos marcados con ✔. Raids con premio completo hoy: <b id="rLeft"></b>.</p>
     <button id="bRNew" class="big">➕ Crear sala</button>
+    <button id="bRSolo" class="wide">👻 Jugar solo con un fantasma</button>
     <div id="rForm" hidden>
      <h2>Nueva sala</h2>
      <input id="rName" class="field" maxlength="16" autocomplete="off" placeholder="Nombre de la sala" aria-label="Nombre de la sala">
@@ -77,6 +78,8 @@
   <h2>Tu apodo</h2>
   <div class="nick"><input id="nick" maxlength="16" autocomplete="off" aria-label="Tu apodo"><button id="bNick">Guardar</button></div>
   <p id="nickMsg" class="hint" hidden></p>
+  <button id="bReset" class="small">Borrar progreso</button>
+  <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
  </div>
  <div id="pStyle" hidden>
   <p class="hint">Tenés 💎 <b id="styleGems">0</b>. Se ganan con misiones, logros, la racha diaria y reiniciando. Esto solo cambia cómo se ve y no da ventajas.</p>
@@ -89,8 +92,6 @@
   <p class="hint">Siguen a todos tus picos mientras caen.</p>
   <div id="looks"></div>
  </div>
- <button id="bReset" class="small">Borrar progreso</button>
- <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
  </div>
  <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>✨</span>Skins</button></div>
 </div>
