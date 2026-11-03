@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-DwooTto3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Cd2UWjok.css">
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-k5RbJkc-.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BrjTYBP6.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
 <div id="hud"><button id="bMusic" aria-label="Música">🎵</button><button id="bMute" aria-label="Sonido">🔊</button><button id="bPause" aria-label="Pausa" hidden>⏸️</button></div>
@@ -45,14 +45,20 @@
   <p id="nickMsg" class="hint" hidden></p>
  </div>
  <div id="pStyle" hidden>
-  <h2>Estelas</h2>
-  <p class="hint">Se compran con 💎 Gemas. Solo cambian cómo se ven tus picos y no dan ventajas.</p>
+  <p class="hint">Tenés 💎 <b id="styleGems">0</b>. Se ganan con misiones, logros, la racha diaria y reiniciando. Esto solo cambia cómo se ve y no da ventajas.</p>
+  <h2>Skins de picos</h2>
+  <p class="hint">Elegí un nivel y cambiale la skin cuando quieras. Lo que comprás sirve para todos.</p>
+  <div id="skinTiers"></div>
+  <h2 id="skinTitle"></h2>
+  <div id="skinList"></div>
+  <h2>Auras</h2>
+  <p class="hint">Siguen a todos tus picos mientras caen.</p>
   <div id="looks"></div>
  </div>
  <button id="bReset" class="small">Borrar progreso</button>
  <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
  </div>
- <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>✨</span>Estilo</button></div>
+ <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>✨</span>Skins</button></div>
 </div>
 <div id="res" class="panel center" hidden><div class="card">
  <h2>¡Ganancia total!</h2>
