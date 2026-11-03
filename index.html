@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-B9U3n178.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CSzJOGba.css">
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-BJJOlvzQ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DgkNj-C4.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
 <div id="hud"><button id="bMusic" aria-label="Música">🎵</button><button id="bMute" aria-label="Sonido">🔊</button><button id="bPause" aria-label="Pausa" hidden>⏸️</button></div>
@@ -8,6 +8,7 @@
  <div id="top"><h1>PICO<br>MINA</h1><div class="chips"><div>💰 <b id="sMoney">0</b></div><div>💎 <b id="sGems">0</b></div><div>📏 <b id="sRec">0</b> m</div></div></div>
  <div id="body">
  <div id="pMine">
+  <div id="modeSw" class="tabs sub" hidden><button id="mSolo" class="on">⛏️ Solo</button><button id="mRaid">⚔️ Raid</button></div>
   <p id="tip" hidden></p>
   <p class="hint">Tocá un pico y después otro igual para <b>fusionarlos</b>. El ✔ marca cuáles se sueltan. Lanzás <b id="sCap"></b>.</p>
   <div id="inv"></div>
@@ -15,8 +16,33 @@
    <button id="bBuy"></button><button id="bHp"></button><button id="bDmg"></button><button id="bCap"></button>
   </div>
   <button id="bMergeAll" class="wide">🔀 Fusionar todo</button>
+  <div id="solo">
   <label id="ckptRow" class="check" hidden><input id="cCkpt" type="checkbox"> Empezar a los <b id="sCkpt"></b> m</label>
   <button id="bDrop" class="big">¡Soltar!</button>
+  </div>
+  <div id="raid" hidden>
+   <p id="rMsg" class="hint warn" hidden></p>
+   <div id="rOut">
+    <p class="hint">De 2 a 4 jugadores bajan 100 m juntos y tienen 3 minutos para vencer a un jefe. Cada uno lleva sus 8 mejores picos marcados con ✔. Raids con premio completo hoy: <b id="rLeft"></b>.</p>
+    <h2>Crear sala</h2>
+    <input id="rName" class="field" maxlength="16" autocomplete="off" placeholder="Nombre de la sala" aria-label="Nombre de la sala">
+    <div id="rSize" class="tabs sub"><button data-n="2">2 jugadores</button><button data-n="3">3</button><button data-n="4">4</button></div>
+    <label class="check"><input id="rPub" type="checkbox" checked> Mostrarla en la lista pública</label>
+    <button id="bRCreate" class="wide">➕ Crear sala</button>
+    <h2>Unirse con código</h2>
+    <div class="nick"><input id="rCode" maxlength="4" autocomplete="off" placeholder="ABCD" aria-label="Código de la sala"><button id="bRJoin">Unirse</button></div>
+    <h2 class="row">Salas públicas <button id="bRList" class="small">Actualizar</button></h2>
+    <div id="rList"></div>
+   </div>
+   <div id="rIn" hidden>
+    <h2 id="rRoomName"></h2>
+    <p class="hint">Código <b id="rCodeTxt"></b> <button id="bRShare" class="small">Compartir link</button></p>
+    <div id="rPlayers"></div>
+    <p id="rWait" class="hint"></p>
+    <button id="bRStart" class="big">⚔️ ¡Iniciar Raid!</button>
+    <button id="bRLeave" class="wide">Salir de la sala</button>
+   </div>
+  </div>
  </div>
  <div id="pGems" hidden>
   <h2>Reiniciar</h2>
@@ -61,7 +87,7 @@
  <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>✨</span>Skins</button></div>
 </div>
 <div id="res" class="panel center" hidden><div class="card">
- <h2>¡Ganancia total!</h2>
+ <h2 id="rTitle">¡Ganancia total!</h2>
  <div id="rMoney" class="money"></div>
  <p id="rRec" class="rec" hidden></p>
  <div id="rAch" class="rec" hidden></div>
@@ -79,7 +105,7 @@
  <p id="guiHint" class="hint" hidden>Para volver a pausar: tocá dos veces la pantalla, o usá el botón atrás o Esc.</p>
  <button id="bResume" class="big">Continuar</button>
  <button id="bQuit" class="wide">Cancelar y volver al lobby</button>
- <p class="hint">Te quedás con lo ganado, pero la partida no entra al ranking.</p>
+ <p id="qHint" class="hint">Te quedás con lo ganado, pero la partida no entra al ranking.</p>
 </div></div>
 <div id="toast" hidden></div>
 <div id="modal" hidden><div><p id="mText"></p><div class="btns"><button id="mNo">Cancelar</button><button id="mYes"></button></div></div></div>
