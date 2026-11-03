@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-B6r_d_9J.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CrNLiAzK.css">
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-CqXuWk8Y.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CDOd-MkO.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
 <div id="hud"><button id="bHelp" aria-label="Cómo se juega">❓</button><button id="bMusic" aria-label="Música">🎵</button><button id="bMute" aria-label="Sonido">🔊</button><button id="bPause" aria-label="Pausa" hidden>⏸️</button></div>
@@ -105,6 +105,7 @@
  <p id="rRank" class="rec" hidden></p>
  <div id="rRows" class="rows"></div>
  <p id="rGoal" class="goal"></p>
+ <div id="rAuto" class="rauto" hidden><span id="rAutoTxt"></span><button id="bAutoStop">Detener</button></div>
  <button id="bAgain" class="big">⛏️ Otra vez</button>
  <button id="bBack" class="wide">Volver a la tienda</button>
 </div></div>
@@ -114,6 +115,7 @@
  <label class="vol"><span>🔊 Sonidos <b id="vSfxTxt"></b></span><input id="vSfx" type="range" min="0" max="100" step="5"></label>
  <div class="btns"><button id="pMusic"></button><button id="pMute"></button></div>
  <label class="check"><input id="cGui" type="checkbox"> Ocultar interfaz</label>
+ <label id="pAutoRow" class="check" hidden><input id="cAuto" type="checkbox"> 🔁 Autojugar otra vez</label>
  <p id="guiHint" class="hint" hidden>Para volver a pausar: tocá dos veces la pantalla, o usá el botón atrás o Esc.</p>
  <button id="bResume" class="big">Continuar</button>
  <button id="bQuit" class="wide">Cancelar y volver al lobby</button>
@@ -127,6 +129,7 @@
  <p id="gText" class="gtext"></p>
  <div class="gnav"><button id="gPrev" aria-label="Anterior">◀</button><div id="gDots" class="gdots"></div><button id="gNext" aria-label="Siguiente">▶</button></div>
 </div></div>
+<div id="auto" hidden><div class="atext"><span>🔁 ¿Autojugar otra vez?</span><small>Cuesta el 10% de lo que ganes</small></div><button id="aYes">Sí</button><button id="aX" aria-label="Cerrar">✕</button><i id="aBar"></i></div>
 <div id="toast" hidden></div>
 <div id="modal" hidden><div><p id="mText"></p><div class="btns"><button id="mNo">Cancelar</button><button id="mYes"></button></div></div></div>
 </div></body></html>
