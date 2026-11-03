@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-BJJOlvzQ.js"></script>
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-CpjmZxfx.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-DgkNj-C4.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
@@ -23,16 +23,21 @@
   <div id="raid" hidden>
    <p id="rMsg" class="hint warn" hidden></p>
    <div id="rOut">
-    <p class="hint">De 2 a 4 jugadores bajan 100 m juntos y tienen 3 minutos para vencer a un jefe. Cada uno lleva sus 8 mejores picos marcados con ✔. Raids con premio completo hoy: <b id="rLeft"></b>.</p>
-    <h2>Crear sala</h2>
-    <input id="rName" class="field" maxlength="16" autocomplete="off" placeholder="Nombre de la sala" aria-label="Nombre de la sala">
-    <div id="rSize" class="tabs sub"><button data-n="2">2 jugadores</button><button data-n="3">3</button><button data-n="4">4</button></div>
-    <label class="check"><input id="rPub" type="checkbox" checked> Mostrarla en la lista pública</label>
-    <button id="bRCreate" class="wide">➕ Crear sala</button>
-    <h2>Unirse con código</h2>
-    <div class="nick"><input id="rCode" maxlength="4" autocomplete="off" placeholder="ABCD" aria-label="Código de la sala"><button id="bRJoin">Unirse</button></div>
-    <h2 class="row">Salas públicas <button id="bRList" class="small">Actualizar</button></h2>
-    <div id="rList"></div>
+    <p class="hint">De 2 a 4 jugadores bajan 100 m juntos y tienen 1 minuto para vencer a un jefe. Cada uno lleva sus 8 mejores picos marcados con ✔. Raids con premio completo hoy: <b id="rLeft"></b>.</p>
+    <button id="bRNew" class="big">➕ Crear sala</button>
+    <div id="rForm" hidden>
+     <h2>Nueva sala</h2>
+     <input id="rName" class="field" maxlength="16" autocomplete="off" placeholder="Nombre de la sala" aria-label="Nombre de la sala">
+     <div id="rSize" class="tabs sub"><button data-n="2">2 jugadores</button><button data-n="3">3</button><button data-n="4">4</button></div>
+     <label class="check"><input id="rPub" type="checkbox" checked> Mostrarla en la lista pública</label>
+     <div class="btns"><button id="bRCancel">Cancelar</button><button id="bRCreate" class="gem">Crear</button></div>
+    </div>
+    <div id="rBrowse">
+     <h2 class="row">Salas públicas <button id="bRList" class="small">Actualizar</button></h2>
+     <div id="rList"></div>
+     <h2>Unirse con código</h2>
+     <div class="nick"><input id="rCode" maxlength="4" autocomplete="off" placeholder="ABCD" aria-label="Código de la sala"><button id="bRJoin">Unirse</button></div>
+    </div>
    </div>
    <div id="rIn" hidden>
     <h2 id="rRoomName"></h2>
