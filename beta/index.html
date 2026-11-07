@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-8rL82ZSo.js"></script>
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-BdiyvH1k.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-ogC6slV0.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
@@ -74,32 +74,42 @@
   <p id="rkMe" class="hint"></p>
   <div id="rkPodium" hidden></div>
   <ol id="rkList"></ol>
-  <h2>Tu foto de perfil</h2>
-  <p class="hint">Se ve en el ranking al lado de tu apodo. Desbloqueás más subiendo de nivel tus picos y comprando skins.</p>
-  <div id="avList"></div>
-  <h2>Tu apodo</h2>
-  <div class="nick"><input id="nick" maxlength="16" autocomplete="off" aria-label="Tu apodo"><button id="bNick">Guardar</button></div>
-  <p id="nickMsg" class="hint" hidden></p>
-  <button id="bReset" class="small">Borrar progreso</button>
-  <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
  </div>
  <div id="pStyle" hidden>
   <div class="boxcard"><h2>🎁 Cofre de cubos</h2>
-   <p class="hint">Juntá 🧊 5 cubos en la mina y abrí un cofre: sale una skin o un aura que no se consigue de otra forma. Los repetidos se guardan.</p>
+   <p class="hint">Juntá 🧊 5 cubos en la mina (hasta 15 por día) y abrí un cofre: sale una skin o un aura que no se consigue de otra forma. Los repetidos se guardan.</p>
    <div class="boxrow"><span>🧊 <b id="boxCubes">0/5</b></span><button id="bOpenBox" class="gem">Abrir cofre</button><button id="bOdds" aria-label="Probabilidades">ℹ️</button></div>
+   <p id="boxDay" class="hint"></p>
    <div id="boxOdds" class="boxodds" hidden></div></div>
   <p class="hint">Tenés 💎 <b id="styleGems">0</b>. Se ganan con misiones, logros, la racha diaria y reiniciando. Esto solo cambia cómo se ve y no da ventajas.</p>
   <h2>Skins de picos</h2>
-  <p class="hint">Elegí un nivel y cambiale la skin cuando quieras. Lo que comprás sirve para todos.</p>
+  <p class="hint">Se compran una vez y sirven para todos los niveles. Te las ponés en 👤 Perfil.</p>
+  <div id="storeSkins"></div>
+  <h2>Auras</h2>
+  <p class="hint">Siguen a todos tus picos mientras caen.</p>
+  <div id="storeAuras"></div>
+ </div>
+ <div id="pProfile" hidden>
+  <h2>Skins de tus picos</h2>
+  <p class="hint">Elegí un nivel y ponele una de tus skins. Conseguís más en la 🛒 Tienda.</p>
   <div id="skinTiers"></div>
   <h2 id="skinTitle"></h2>
   <div id="skinList"></div>
-  <h2>Auras</h2>
-  <p class="hint">Siguen a todos tus picos mientras caen.</p>
+  <h2>Aura</h2>
   <div id="looks"></div>
+  <div id="profOnline" hidden>
+   <h2>Tu apodo</h2>
+   <div class="nick"><input id="nick" maxlength="16" autocomplete="off" aria-label="Tu apodo"><button id="bNick">Guardar</button></div>
+   <p id="nickMsg" class="hint" hidden></p>
+   <h2>Tu foto en el ranking</h2>
+   <p class="hint">Se ve en el ranking al lado de tu apodo. Desbloqueás más subiendo de nivel tus picos y consiguiendo skins.</p>
+   <div id="avList"></div>
+  </div>
+  <button id="bReset" class="small">Borrar progreso</button>
+  <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
  </div>
  </div>
- <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>✨</span>Skins</button></div>
+ <div class="nav"><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabGoals"><span>🎯</span>Metas</button><button id="tabRank" hidden><span>🏆</span>Top</button><button id="tabStyle"><span>🛒</span>Tienda</button><button id="tabProfile"><span>👤</span>Perfil</button></div>
 </div>
 <div id="res" class="panel center" hidden><div class="card">
  <h2 id="rTitle">¡Ganancia total!</h2>
