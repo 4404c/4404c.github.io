@@ -1,155 +1,166 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-D_nsdxKg.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BOZnVomA.css">
+<title>Pico Mina</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-B1X4vw7d.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B0qH4Bml.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
-<div id="hud"><button id="bGoals" aria-label="Metas">🎯</button><button id="bHelp" aria-label="Cómo se juega">❓</button><button id="bMusic" aria-label="Música">🎵</button><button id="bMute" aria-label="Sonido">🔊</button><button id="bPause" aria-label="Pausa" hidden>⏸️</button></div>
+<div id="hud"><button id="bGoals" aria-label="Metas" data-en-aria="Goals">🎯</button><button id="bOpts" aria-label="Opciones" data-en-aria="Options">⚙️</button><button id="bPause" aria-label="Pausa" data-en-aria="Pause" hidden>⏸️</button></div>
 <div id="shop" class="panel">
  <div id="top"><h1>PICO<br>MINA</h1><div class="chips"><div>💰 <b id="sMoney">0</b></div><div>💎 <b id="sGems">0</b></div><div>📏 <b id="sRec">0</b> m</div></div></div>
  <div id="body">
  <div id="pMine">
   <div id="modeSw" class="tabs sub" hidden><button id="mSolo" class="on">⛏️ Solo</button><button id="mRaid">⚔️ Raid</button></div>
   <p id="tip" hidden></p>
-  <p class="hint">Tocá un pico y después otro igual para <b>fusionarlos</b>. El ✔ marca cuáles se sueltan. Lanzás <b id="sCap"></b>.</p>
+  <p class="hint" data-en='Tap a pick and then another equal one to <b>merge them</b>. The ✔ marks which ones get dropped. You launch <b id="sCap"></b>.'>Tocá un pico y después otro igual para <b>fusionarlos</b>. El ✔ marca cuáles se sueltan. Lanzás <b id="sCap"></b>.</p>
   <div id="inv"></div>
   <div class="btns">
    <button id="bBuy"></button><button id="bHp"></button><button id="bDmg"></button><button id="bCap"></button>
   </div>
-  <button id="bMergeAll" class="wide">🔀 Fusionar todo</button>
+  <button id="bMergeAll" class="wide" data-en="🔀 Merge all">🔀 Fusionar todo</button>
   <div id="solo">
-  <label id="ckptRow" class="check" hidden><input id="cCkpt" type="checkbox"> Empezar a los <b id="sCkpt"></b> m</label>
-  <button id="bDrop" class="big">¡Soltar!</button>
+  <label id="ckptRow" class="check" hidden data-en='<input id="cCkpt" type="checkbox"> Start at <b id="sCkpt"></b> m'><input id="cCkpt" type="checkbox"> Empezar a los <b id="sCkpt"></b> m</label>
+  <button id="bDrop" class="big" data-en="Drop!">¡Soltar!</button>
   </div>
   <div id="raid" hidden>
    <p id="rMsg" class="hint warn" hidden></p>
    <div id="rOut">
-    <p class="hint">Hasta 4 jugadores bajan 100 m juntos y tienen 1 minuto para vencer a un jefe. Si iniciás solo, te acompaña un fantasma con tus mismos picos. Cada uno lleva sus 8 mejores picos marcados con ✔. Raids con premio completo hoy: <b id="rLeft"></b>.</p>
-    <button id="bRNew" class="big">➕ Crear sala</button>
+    <p class="hint" data-en='Up to 4 players dive 100 m together and have 1 minute to beat a boss. If you start alone, a ghost with your same picks joins you. Each player brings their 8 best picks marked with ✔. Full-reward Raids today: <b id="rLeft"></b>.'>Hasta 4 jugadores bajan 100 m juntos y tienen 1 minuto para vencer a un jefe. Si iniciás solo, te acompaña un fantasma con tus mismos picos. Cada uno lleva sus 8 mejores picos marcados con ✔. Raids con premio completo hoy: <b id="rLeft"></b>.</p>
+    <button id="bRNew" class="big" data-en="➕ Create room">➕ Crear sala</button>
     <div id="rForm" hidden>
-     <h2>Nueva sala</h2>
-     <input id="rName" class="field" maxlength="16" autocomplete="off" placeholder="Nombre de la sala" aria-label="Nombre de la sala">
-     <div id="rSize" class="tabs sub"><button data-n="2">2 jugadores</button><button data-n="3">3</button><button data-n="4">4</button></div>
-     <label class="check"><input id="rPub" type="checkbox" checked> Mostrarla en la lista pública</label>
-     <div class="btns"><button id="bRCancel">Cancelar</button><button id="bRCreate" class="gem">Crear</button></div>
+     <h2 data-en="New room">Nueva sala</h2>
+     <input id="rName" class="field" maxlength="16" autocomplete="off" placeholder="Nombre de la sala" aria-label="Nombre de la sala" data-en-ph="Room name" data-en-aria="Room name">
+     <div id="rSize" class="tabs sub"><button data-n="2" data-en="2 players">2 jugadores</button><button data-n="3">3</button><button data-n="4">4</button></div>
+     <label class="check" data-en='<input id="rPub" type="checkbox" checked> Show it in the public list'><input id="rPub" type="checkbox" checked> Mostrarla en la lista pública</label>
+     <div class="btns"><button id="bRCancel" data-en="Cancel">Cancelar</button><button id="bRCreate" class="gem" data-en="Create">Crear</button></div>
     </div>
     <div id="rBrowse">
-     <h2 class="row">Salas públicas <button id="bRList" class="small">Actualizar</button></h2>
+     <h2 class="row" data-en='Public rooms <button id="bRList" class="small">Refresh</button>'>Salas públicas <button id="bRList" class="small">Actualizar</button></h2>
      <div id="rList"></div>
-     <h2>Unirse con código</h2>
-     <div class="nick"><input id="rCode" maxlength="4" autocomplete="off" placeholder="ABCD" aria-label="Código de la sala"><button id="bRJoin">Unirse</button></div>
+     <h2 data-en="Join with a code">Unirse con código</h2>
+     <div class="nick"><input id="rCode" maxlength="4" autocomplete="off" placeholder="ABCD" aria-label="Código de la sala" data-en-aria="Room code"><button id="bRJoin" data-en="Join">Unirse</button></div>
     </div>
    </div>
    <div id="rIn" hidden>
     <h2 id="rRoomName"></h2>
-    <p class="hint">Código <b id="rCodeTxt"></b> <button id="bRShare" class="small">Compartir link</button></p>
+    <p class="hint" data-en='Code <b id="rCodeTxt"></b> <button id="bRShare" class="small">Share link</button>'>Código <b id="rCodeTxt"></b> <button id="bRShare" class="small">Compartir link</button></p>
     <div id="rPlayers"></div>
     <p id="rBoss" class="boss-est"></p>
     <p id="rWait" class="hint"></p>
-    <button id="bRStart" class="big">⚔️ ¡Iniciar Raid!</button>
-    <button id="bRLeave" class="wide">Salir de la sala</button>
+    <button id="bRStart" class="big" data-en="⚔️ Start Raid!">⚔️ ¡Iniciar Raid!</button>
+    <button id="bRLeave" class="wide" data-en="Leave the room">Salir de la sala</button>
    </div>
   </div>
  </div>
  <div id="pGems" hidden>
-  <h2>Reiniciar</h2>
+  <h2 data-en="Reset">Reiniciar</h2>
   <p class="hint" id="sPreq"></p>
-  <button id="bPrestige" class="big gem">Reiniciar por 💎 <span id="sGain">0</span></button>
-  <h2>Mejoras permanentes</h2>
+  <button id="bPrestige" class="big gem" data-en='Reset for 💎 <span id="sGain">0</span>'>Reiniciar por 💎 <span id="sGain">0</span></button>
+  <h2 data-en="Permanent upgrades">Mejoras permanentes</h2>
   <div id="gemUps" class="btns"></div>
  </div>
  <div id="pGoals" hidden>
-  <h2>Recompensa diaria · día <span id="sStreak"></span> de 7</h2>
-  <p class="hint">Si faltás, la racha retrocede un poco, nunca vuelve a cero de golpe.</p>
+  <h2 data-en='Daily reward · day <span id="sStreak"></span> of 7'>Recompensa diaria · día <span id="sStreak"></span> de 7</h2>
+  <p class="hint" data-en="If you miss a day, the streak goes back a little, never all the way to zero.">Si faltás, la racha retrocede un poco, nunca vuelve a cero de golpe.</p>
   <button id="bDaily" class="big gem"></button>
-  <h2>Misiones de hoy</h2>
-  <p class="hint">Completá las tres para ganar 💎 1. ⏱️ Se renuevan en <b id="sMisT"></b>.</p>
+  <h2 data-en="Today's missions">Misiones de hoy</h2>
+  <p class="hint" data-en='Complete all three to earn 💎 1. ⏱️ They renew in <b id="sMisT"></b>.'>Completá las tres para ganar 💎 1. ⏱️ Se renuevan en <b id="sMisT"></b>.</p>
   <div id="missions"></div>
-  <h2>Logros <span id="sAch"></span></h2>
+  <h2 data-en='Achievements <span id="sAch"></span>'>Logros <span id="sAch"></span></h2>
   <div id="achs"></div>
  </div>
  <div id="pRank" hidden>
-  <div class="tabs sub"><button id="rkMoney">💰 Mejor partida</button><button id="rkDepth">📏 Profundidad</button></div>
-  <div class="tabs sub"><button id="rkWeek">Esta semana</button><button id="rkAll">Histórico</button></div>
-  <div id="rkPrize" class="prize" hidden><b>🏆 Premios de la semana</b><span id="rkPrizeTxt"></span><small id="rkEnds"></small></div>
+  <div class="tabs sub"><button id="rkMoney" data-en="💰 Best run">💰 Mejor partida</button><button id="rkDepth" data-en="📏 Depth">📏 Profundidad</button></div>
+  <div class="tabs sub"><button id="rkWeek" data-en="This week">Esta semana</button><button id="rkAll" data-en="All time">Histórico</button></div>
+  <div id="rkPrize" class="prize" hidden><b data-en="🏆 Weekly prizes">🏆 Premios de la semana</b><span id="rkPrizeTxt"></span><small id="rkEnds"></small></div>
   <p id="rkMe" class="hint"></p>
   <div id="rkPodium" hidden></div>
   <ol id="rkList"></ol>
  </div>
  <div id="pStyle" hidden>
-  <div class="boxcard"><h2>🎁 Cofre de cubos</h2>
-   <p class="hint">Juntá 🧊 5 cubos en la mina (hasta 15 por día) y abrí un cofre: sale una skin o un aura que no se consigue de otra forma. Los repetidos se guardan.</p>
-   <div class="boxrow"><span>🧊 <b id="boxCubes">0/5</b></span><button id="bOpenBox" class="gem">Abrir cofre</button><button id="bOdds" aria-label="Probabilidades">ℹ️</button></div>
+  <div class="boxcard"><h2 data-en="🎁 Cube chest">🎁 Cofre de cubos</h2>
+   <p class="hint" data-en="Collect 🧊 5 cubes in the mine (up to 15 a day) and open a chest: you get a skin or aura you can't get any other way. Duplicates are kept.">Juntá 🧊 5 cubos en la mina (hasta 15 por día) y abrí un cofre: sale una skin o un aura que no se consigue de otra forma. Los repetidos se guardan.</p>
+   <div class="boxrow"><span>🧊 <b id="boxCubes">0/5</b></span><button id="bOpenBox" class="gem" data-en="Open chest">Abrir cofre</button><button id="bOdds" aria-label="Probabilidades" data-en-aria="Odds">ℹ️</button></div>
    <p id="boxDay" class="hint"></p>
    <div id="boxOdds" class="boxodds" hidden></div></div>
-  <p class="hint">Tenés 💎 <b id="styleGems">0</b>. Se ganan con misiones, logros, la racha diaria y reiniciando. Esto solo cambia cómo se ve y no da ventajas.</p>
-  <h2>Skins de picos</h2>
-  <p class="hint">Se compran una vez y sirven para todos los niveles. Te las ponés en 👤 Perfil.</p>
+  <p class="hint" data-en='You have 💎 <b id="styleGems">0</b>. Earn them with missions, achievements, the daily streak and resetting. This only changes the look and gives no advantage.'>Tenés 💎 <b id="styleGems">0</b>. Se ganan con misiones, logros, la racha diaria y reiniciando. Esto solo cambia cómo se ve y no da ventajas.</p>
+  <h2 data-en="Pick skins">Skins de picos</h2>
+  <p class="hint" data-en="Buy them once and they work for every level. Equip them in 👤 Profile.">Se compran una vez y sirven para todos los niveles. Te las ponés en 👤 Perfil.</p>
   <div id="storeSkins"></div>
   <h2>Auras</h2>
-  <p class="hint">Siguen a todos tus picos mientras caen.</p>
+  <p class="hint" data-en="They follow all your picks as they fall.">Siguen a todos tus picos mientras caen.</p>
   <div id="storeAuras"></div>
  </div>
  <div id="pProfile" hidden>
-  <h2>Skins de tus picos</h2>
-  <p class="hint">Elegí un nivel y ponele una de tus skins. Conseguís más en la 🛒 Tienda.</p>
+  <h2 data-en="Your pick skins">Skins de tus picos</h2>
+  <p class="hint" data-en="Choose a level and give it one of your skins. Get more in the 🛒 Shop.">Elegí un nivel y ponele una de tus skins. Conseguís más en la 🛒 Tienda.</p>
   <div id="skinTiers"></div>
   <h2 id="skinTitle"></h2>
   <div id="skinList"></div>
   <h2>Aura</h2>
   <div id="looks"></div>
   <div id="profOnline" hidden>
-   <h2>Tu apodo</h2>
-   <div class="nick"><input id="nick" maxlength="16" autocomplete="off" aria-label="Tu apodo"><button id="bNick">Guardar</button></div>
+   <h2 data-en="Your nickname">Tu apodo</h2>
+   <div class="nick"><input id="nick" maxlength="16" autocomplete="off" aria-label="Tu apodo" data-en-aria="Your nickname"><button id="bNick" data-en="Save">Guardar</button></div>
    <p id="nickMsg" class="hint" hidden></p>
-   <h2>Tu foto en el ranking</h2>
-   <p class="hint">Se ve en el ranking al lado de tu apodo. Desbloqueás más subiendo de nivel tus picos y consiguiendo skins.</p>
+   <h2 data-en="Your ranking picture">Tu foto en el ranking</h2>
+   <p class="hint" data-en="It shows in the ranking next to your nickname. Unlock more by leveling up your picks and getting skins.">Se ve en el ranking al lado de tu apodo. Desbloqueás más subiendo de nivel tus picos y consiguiendo skins.</p>
    <div id="avList"></div>
   </div>
-  <button id="bReset" class="small">Borrar progreso</button>
-  <a class="legal" href="./privacidad.html" target="_blank" rel="noopener">Privacidad</a>
+  <button id="bReset" class="small" data-en="Delete progress">Borrar progreso</button>
+  <a class="legal" href="./privacidad.html" target="_blank" rel="noopener" data-en="Privacy">Privacidad</a>
  </div>
  </div>
- <div class="nav"><button id="tabStyle"><span>🛒</span>Tienda</button><button id="tabProfile"><span>👤</span>Perfil</button><button id="tabMine" class="on"><span>⛏️</span>Mina</button><button id="tabGems"><span>💎</span>Gemas</button><button id="tabRank" hidden><span>🏆</span>Top</button></div>
+ <div class="nav"><button id="tabStyle" data-en="<span>🛒</span>Shop"><span>🛒</span>Tienda</button><button id="tabProfile" data-en="<span>👤</span>Profile"><span>👤</span>Perfil</button><button id="tabMine" class="on" data-en="<span>⛏️</span>Mine"><span>⛏️</span>Mina</button><button id="tabGems" data-en="<span>💎</span>Gems"><span>💎</span>Gemas</button><button id="tabRank" hidden><span>🏆</span>Top</button></div>
 </div>
 <div id="res" class="panel center" hidden><div class="card">
- <h2 id="rTitle">¡Ganancia total!</h2>
+ <h2 id="rTitle" data-en="Total earnings!">¡Ganancia total!</h2>
  <div id="rMoney" class="money"></div>
  <p id="rRec" class="rec" hidden></p>
  <div id="rAch" class="rec" hidden></div>
  <p id="rRank" class="rec" hidden></p>
  <div id="rRows" class="rows"></div>
  <p id="rGoal" class="goal"></p>
- <div id="rAuto" class="rauto" hidden><span id="rAutoTxt"></span><button id="bAutoStop">Detener</button></div>
- <button id="bAgain" class="big">⛏️ Otra vez</button>
- <button id="bBack" class="wide">Volver a la tienda</button>
+ <div id="rAuto" class="rauto" hidden><span id="rAutoTxt"></span><button id="bAutoStop" data-en="Stop">Detener</button></div>
+ <button id="bAgain" class="big" data-en="⛏️ Again">⛏️ Otra vez</button>
+ <button id="bBack" class="wide" data-en="Back to the shop">Volver a la tienda</button>
 </div></div>
 <div id="pause" class="panel center" hidden><div class="card">
- <h2>Pausa</h2>
- <label class="vol"><span>🎵 Música <b id="vMusicTxt"></b></span><input id="vMusic" type="range" min="0" max="100" step="5"></label>
- <label class="vol"><span>🔊 Sonidos <b id="vSfxTxt"></b></span><input id="vSfx" type="range" min="0" max="100" step="5"></label>
+ <h2 data-en="Paused">Pausa</h2>
+ <label class="vol"><span data-en='🎵 Music <b id="vMusicTxt"></b>'>🎵 Música <b id="vMusicTxt"></b></span><input id="vMusic" type="range" min="0" max="100" step="5"></label>
+ <label class="vol"><span data-en='🔊 Sounds <b id="vSfxTxt"></b>'>🔊 Sonidos <b id="vSfxTxt"></b></span><input id="vSfx" type="range" min="0" max="100" step="5"></label>
  <div class="btns"><button id="pMusic"></button><button id="pMute"></button></div>
- <label class="check"><input id="cGui" type="checkbox"> Ocultar interfaz</label>
- <label id="pAutoRow" class="check" hidden><input id="cAuto" type="checkbox"> 🔁 Autojugar otra vez</label>
- <p id="guiHint" class="hint" hidden>Para volver a pausar: tocá dos veces la pantalla, o usá el botón atrás o Esc.</p>
- <button id="bResume" class="big">Continuar</button>
- <button id="bQuit" class="wide">Cancelar y volver al lobby</button>
- <p id="qHint" class="hint">Te quedás con lo ganado, pero la partida no entra al ranking.</p>
+ <label class="check" data-en='<input id="cGui" type="checkbox"> Hide interface'><input id="cGui" type="checkbox"> Ocultar interfaz</label>
+ <label id="pAutoRow" class="check" hidden data-en='<input id="cAuto" type="checkbox"> 🔁 Autoplay again'><input id="cAuto" type="checkbox"> 🔁 Autojugar otra vez</label>
+ <p id="guiHint" class="hint" hidden data-en="To pause again: double-tap the screen, or use the back button or Esc.">Para volver a pausar: tocá dos veces la pantalla, o usá el botón atrás o Esc.</p>
+ <button id="bResume" class="big" data-en="Resume">Continuar</button>
+ <button id="bQuit" class="wide" data-en="Cancel and return to lobby">Cancelar y volver al lobby</button>
+ <p id="qHint" class="hint" data-en="You keep what you earned, but the run doesn't count for the ranking.">Te quedás con lo ganado, pero la partida no entra al ranking.</p>
 </div></div>
 <div id="guide" class="panel center" hidden><div class="card gcard">
- <button id="gClose" class="gclose" aria-label="Cerrar">✕</button>
+ <button id="gClose" class="gclose" aria-label="Cerrar" data-en-aria="Close">✕</button>
  <h2 id="gTitle"></h2>
  <img id="gImg" class="gimg" alt="">
  <div id="gIcons" class="gicons"></div>
  <p id="gText" class="gtext"></p>
- <div class="gnav"><button id="gPrev" aria-label="Anterior">◀</button><div id="gDots" class="gdots"></div><button id="gNext" aria-label="Siguiente">▶</button></div>
+ <div class="gnav"><button id="gPrev" aria-label="Anterior" data-en-aria="Previous">◀</button><div id="gDots" class="gdots"></div><button id="gNext" aria-label="Siguiente" data-en-aria="Next">▶</button></div>
 </div></div>
-<div id="auto" hidden><div class="atext"><span>🔁 ¿Autojugar otra vez?</span><small>Cuesta el 10% de lo que ganes</small></div><button id="aYes">Sí</button><button id="aX" aria-label="Cerrar">✕</button><i id="aBar"></i></div>
+<div id="auto" hidden><div class="atext"><span data-en="🔁 Autoplay again?">🔁 ¿Autojugar otra vez?</span><small>Cuesta el 10% de lo que ganes</small></div><button id="aYes" data-en="Yes">Sí</button><button id="aX" aria-label="Cerrar" data-en-aria="Close">✕</button><i id="aBar"></i></div>
 <div id="box" class="panel center" hidden><canvas id="confetti"></canvas><div class="card boxc">
- <h2 id="boxTitle">Abriendo el cofre…</h2>
+ <h2 id="boxTitle" data-en="Opening the chest…">Abriendo el cofre…</h2>
  <div class="reel"><div id="reel"></div><i class="mark"></i></div>
  <div id="boxRes" class="boxres" hidden><b id="boxName"></b><small id="boxInfo"></small></div>
- <div class="btns"><button id="bBoxUse" hidden>Usar</button><button id="bBoxClose">Saltar</button></div>
+ <div class="btns"><button id="bBoxUse" hidden data-en="Use">Usar</button><button id="bBoxClose" data-en="Skip">Saltar</button></div>
+</div></div>
+<div id="opts" class="panel center" hidden><div class="card">
+ <button id="oClose" class="gclose" aria-label="Cerrar" data-en-aria="Close">✕</button>
+ <h2 data-en="⚙️ Options">⚙️ Opciones</h2>
+ <label class="vol"><span data-en='🎵 Music <b id="oVMusicTxt"></b>'>🎵 Música <b id="oVMusicTxt"></b></span><input id="oVMusic" type="range" min="0" max="100" step="5"></label>
+ <label class="vol"><span data-en='🔊 Sounds <b id="oVSfxTxt"></b>'>🔊 Sonidos <b id="oVSfxTxt"></b></span><input id="oVSfx" type="range" min="0" max="100" step="5"></label>
+ <div class="btns"><button id="oMusic"></button><button id="oMute"></button></div>
+ <button id="oGuide" class="wide" data-en="📖 See the tutorial again">📖 Ver el tutorial otra vez</button>
+ <h2 data-en="🌐 Language">🌐 Idioma</h2>
+ <div id="oLang" class="tabs sub"><button data-l="es">Español</button><button data-l="en">English</button></div>
+ <button id="oDone" class="big" data-en="Done">Listo</button>
 </div></div>
 <div id="toast" hidden></div>
-<div id="modal" hidden><div><p id="mText"></p><div class="btns"><button id="mNo">Cancelar</button><button id="mYes"></button></div></div></div>
+<div id="modal" hidden><div><p id="mText"></p><div class="btns"><button id="mNo" data-en="Cancel">Cancelar</button><button id="mYes"></button></div></div></div>
 </div></body></html>
