@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pickfall</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pickfall"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-Wp_NKT0H.js"></script>
+<title>Pickfall</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pickfall"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-Cs8SXsh9.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-DMO8aM68.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
@@ -64,6 +64,8 @@
   <h2 data-en="Today's missions">Misiones de hoy</h2>
   <p class="hint" data-en='All three: 💎 1 · ⏱️ <b id="sMisT"></b>'>Las tres: 💎 1 · ⏱️ <b id="sMisT"></b></p>
   <div id="missions"></div>
+  <div id="mileBox" hidden><h2 data-en="Depth goal">Meta de profundidad</h2>
+  <p id="sMile" class="hint"></p></div>
   <h2 data-en='Achievements <span id="sAch"></span>'>Logros <span id="sAch"></span></h2>
   <div id="achs"></div>
  </div>
@@ -105,6 +107,8 @@
    <p class="hint" data-en="Shown in the ranking with your aura.">Se ve en el ranking, con tu aura.</p>
    <div id="avList"></div>
   </div>
+  <h2 data-en="Your stats">Tus estadísticas</h2>
+  <div id="statRows" class="rows"></div>
   <button id="bReset" class="small" data-en="Delete progress">Borrar progreso</button>
   <a class="legal" href="./privacidad.html" target="_blank" rel="noopener" data-en="Privacy">Privacidad</a>
  </div>
@@ -156,6 +160,7 @@
  <label class="vol"><span data-en='🎵 Music <b id="oVMusicTxt"></b>'>🎵 Música <b id="oVMusicTxt"></b></span><input id="oVMusic" type="range" min="0" max="100" step="5"></label>
  <label class="vol"><span data-en='🔊 Sounds <b id="oVSfxTxt"></b>'>🔊 Sonidos <b id="oVSfxTxt"></b></span><input id="oVSfx" type="range" min="0" max="100" step="5"></label>
  <div class="btns"><button id="oMusic"></button><button id="oMute"></button></div>
+ <button id="oVib" class="wide" hidden></button>
  <button id="oGuide" class="wide" data-en="📖 See the tutorial again">📖 Ver el tutorial otra vez</button>
  <h2 data-en="🌐 Language">🌐 Idioma</h2>
  <div id="oLang" class="tabs sub"><button data-l="es">Español</button><button data-l="en">English</button></div>
