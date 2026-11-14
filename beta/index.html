@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pickfall</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pickfall"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-Cs8SXsh9.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DMO8aM68.css">
+<title>Pickfall</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pickfall"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-DNbxNJSu.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-0Lih-OnF.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
 <div id="hud"><button id="bGoals" aria-label="Metas" data-en-aria="Goals">🎯</button><button id="bOpts" aria-label="Opciones" data-en-aria="Options">⚙️</button><button id="bPause" aria-label="Pausa" data-en-aria="Pause" hidden>⏸️</button></div>
@@ -16,6 +16,7 @@
    <button id="bBuy"></button><button id="bHp"></button><button id="bDmg"></button><button id="bCap"></button>
   </div>
   <button id="bMergeAll" class="wide" data-en="🔀 Merge all">🔀 Fusionar todo</button>
+  <div id="boostWrap" hidden><h2 data-en="⚡ Boosts">⚡ Potenciadores</h2><div id="boostRow" class="boosts"></div></div>
   <div id="solo">
   <label id="ckptRow" class="check" hidden data-en='<input id="cCkpt" type="checkbox"> Start at <b id="sCkpt"></b> m'><input id="cCkpt" type="checkbox"> Empezar a los <b id="sCkpt"></b> m</label>
   <button id="bDrop" class="big" data-en="⛏️ Drop!">⛏️ ¡Soltar!</button>
@@ -58,7 +59,7 @@
   <div id="gemUps" class="btns"></div>
  </div>
  <div id="pGoals" hidden>
-  <h2 data-en='Daily reward · day <span id="sStreak"></span> of 7'>Recompensa diaria · día <span id="sStreak"></span> de 7</h2>
+  <h2 data-en='Daily spin · day <span id="sStreak"></span> of 7'>Ruleta diaria · día <span id="sStreak"></span> de 7</h2>
   <p class="hint" data-en="Missing a day doesn't reset your streak.">Faltar un día no te borra la racha.</p>
   <button id="bDaily" class="big gem"></button>
   <h2 data-en="Today's missions">Misiones de hoy</h2>
