@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Pickfall</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pickfall"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-DMpU9Kdn.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-B5fIzFiP.css">
+<title>Pickfall</title><meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más profundo. Juego gratis en el navegador."><meta name="theme-color" content="#15131d"><meta property="og:title" content="Pickfall"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más profundo."><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">  <script type="module" crossorigin src="./assets/index-I9bNoe6f.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DUSVWAnQ.css">
 </head><body>
 <div id="wrap"><canvas id="cv" width="720" height="1280"></canvas>
 <div id="hud"><button id="bGoals" aria-label="Metas" data-en-aria="Goals">🎯</button><button id="bOpts" aria-label="Opciones" data-en-aria="Options">⚙️</button><button id="bPause" aria-label="Pausa" data-en-aria="Pause" hidden>⏸️</button></div>
@@ -16,7 +16,7 @@
    <button id="bBuy"></button><button id="bHp"></button><button id="bDmg"></button><button id="bCap"></button>
   </div>
   <button id="bMergeAll" class="wide" data-en="🔀 Merge all">🔀 Fusionar todo</button>
-  <div id="boostWrap" hidden><h2 data-en="⚡ Boosts">⚡ Potenciadores</h2><div id="boostRow" class="boosts"></div></div>
+  <div id="boostWrap" hidden><h2 class="row" data-en='⚡ Boosts <button id="bBoostInfo" class="small" aria-label="What are they?">ℹ️ What are they?</button>'>⚡ Potenciadores <button id="bBoostInfo" class="small" aria-label="¿Para qué sirven?">ℹ️ ¿Para qué sirven?</button></h2><div id="boostRow" class="boosts"></div></div>
   <div id="solo">
   <label id="ckptRow" class="check" hidden data-en='<input id="cCkpt" type="checkbox"> Start at <b id="sCkpt"></b> m'><input id="cCkpt" type="checkbox"> Empezar a los <b id="sCkpt"></b> m</label>
   <button id="bDrop" class="big" data-en="⛏️ Drop!">⛏️ ¡Soltar!</button>
@@ -172,6 +172,13 @@
  <h2 data-en="🌐 Language">🌐 Idioma</h2>
  <div id="oLang" class="tabs sub"><button data-l="es">Español</button><button data-l="en">English</button></div>
  <button id="oDone" class="big" data-en="Done">Listo</button>
+</div></div>
+<div id="binfo" class="panel center" hidden><div class="card">
+ <button id="biX" class="gclose" aria-label="Cerrar" data-en-aria="Close">✕</button>
+ <h2 data-en="⚡ Boosts">⚡ Potenciadores</h2>
+ <div id="biList" class="bilist"></div>
+ <p class="hint" data-en="Each one lasts 1 hour once you activate it, and using another of the same kind adds another hour. You get them from the daily spin and by completing the 3 daily missions.">Cada uno dura 1 hora desde que lo activás, y usar otro igual suma otra hora. Salen de la ruleta diaria y de completar las 3 misiones del día.</p>
+ <button id="biOk" class="big" data-en="Got it">Entendido</button>
 </div></div>
 <div id="toast" hidden></div>
 <div id="modal" hidden><div><p id="mText"></p><div class="btns"><button id="mNo" data-en="Cancel">Cancelar</button><button id="mYes"></button></div></div></div>
